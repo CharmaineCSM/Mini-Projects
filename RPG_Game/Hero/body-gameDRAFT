@@ -1,0 +1,110 @@
+## this works!
+
+class Player:
+  def __init__(self):
+    self.name = ""
+    self.hp = 100
+    self.hpmax = 100
+    self.potion =1 
+    self.inventory = ['key']
+  
+  def attack(self):
+    self.attack = 10
+    #enemy.health = enemy.health - self.attack
+    print(f"{self.name} has dealt {self.attack} to {current_enemy.name}.")
+  
+  def get_health(self):
+    print(f"{self.name}'s health is {self.hp}/{self.hpmax}.")
+    
+  def get_inventory(self):
+    print(f"Inventory Bag: {self.inventory}")
+    
+  def get_potion(self):
+    print(f"Healing Potions: {self.potion}")
+    
+  def heal(self):
+    amount = 30
+    if self.hp == 100:
+      print("Your health is full!")
+    elif self.hp + amount < 100:
+      return self.hp == self.hp + amount
+      print(f"{self.name}'s HP has been refilled to {self.hp}.")
+
+p1 = Player()
+
+def draw():
+  print("++-------------------------------------------++")
+
+
+class Enemy:
+  def __init__(self):
+    self.name = ""
+    self.hp = 10
+    self.hpmax = 10
+    self.noise = "Roar"
+    self.attack = 5
+  
+  def attack(self):
+    print(f"{self.name} has dealt {self.attack} damage to !")
+    #p1.hp -= self.attack
+    print(f" 's health is now.")
+    
+  def get_health(self):
+    print(f"{self.name}'s health is {self.hp}/{self.hpmax}.")
+
+
+class NoisyMiner(Enemy):
+  def __init__(self):
+    self.name = "Noisy Miner"
+    self.hp = 15
+    self.hpmax = 15
+    self.noise = "TWEET TWEET!"
+  
+  def attack(self):
+    print(f"{self.name} screams {self.noise} and dealt {enemy.attack} to {p1.name} !")
+  
+  
+class Magpie(Enemy):
+  def __init__(self):
+    self.name = "Magpie"
+    self.hp = 30
+    self.hpmax = 30
+    self.noise = "KRAAWWWW KRAAWWW!"
+  
+  def special_attack(self):
+    self.spec_attack = 30
+    print(f"{self.name} dives from the tree and screams {self.noise} with a special attack and dealt {self.spec_attack} to {p1.name}!")
+  
+  def attack(self):
+    print(f"{self.name} has dealt {enemy.attack} to {p1.name}!")
+    
+
+enemy = Enemy()
+mob1 = NoisyMiner()
+mob2 = Magpie()
+
+current_enemy = mob1
+  
+def game():
+  fight = False
+  p1.name = input("What is your name, Hero? >")
+  draw()
+  p1.get_health()
+  p1.get_potion()
+  p1.get_inventory()
+  draw()
+  print(f"You have stumbled upon an enemy...Its a {current_enemy.name}!")
+  print("Choose your option:")
+  print("1.Attack\n2.Heal\n3.Run")
+  choice = input(">")
+  if choice == "1":
+    p1.attack()
+    current_enemy.attack()
+    input(">")
+  elif choice == "2":
+    p1.heal()
+    input(">")
+  elif choice == "3":
+    exit()
+  
+game()
