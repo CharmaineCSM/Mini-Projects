@@ -25,12 +25,12 @@ class Player:
         self.hpmax = 100
         self.potion = 1
         self.inventory = ["key"]
+        self.atk = 10
 
     def attack(self):
         """
         return player atk damage and print attack statement
         """
-        self.atk = 10
         # enemy.health = enemy.health - self.attack
         print(f"{self.name} has dealt {self.atk} to enemy.")
 
@@ -60,6 +60,6 @@ class Player:
         if self.hp == 100:
             print("Your health is full!")
         elif self.hp + amount < 100 and self.potion >= 1:
-            self.hp == self.hp + amount
+            self.hp += amount
             self.potion -= 1
             print(f"{self.name}'s HP has been refilled to {self.hp}.")
