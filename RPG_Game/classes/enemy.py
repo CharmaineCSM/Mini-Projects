@@ -1,10 +1,21 @@
-from classes.player import Player
-
-p1 = Player()
-
-
 class Enemy:
+    """
+    A class used to represent the Enemy
+
+    Attributes
+    ----------
+    name : str
+        name of enemy depending on random choice
+    hp : int
+        the hp of enemy
+    hpmax : int
+        the maximum amount of health of enemy
+    """
+
     def __init__(self):
+        """
+        initialize the enemy's attribute
+        """
         self.name = ""
         self.hp = 10
         self.hpmax = 10
@@ -12,15 +23,17 @@ class Enemy:
         self.attack = 5
 
     def attack_character(self):
-        print(f"{self.name} has dealt {self.attack} damage to !")
+        """
+        print enemy attack statement
+        """
+        print(f"{self.name} has dealt {self.attack} damage to player!")
         # p1.hp -= self.attack
-        print(f" 's health is now.")
 
     def get_health(self):
-        print(f"{self.name}'s health is {self.hp}/{self.hpmax}.")
-
-
-# ennemy.attack
+        """
+        get HP/HPMAX stats for enemy
+        """
+        print(f"HP: {self.hp}/{self.hpmax}")
 
 
 class NoisyMiner(Enemy):
@@ -29,32 +42,23 @@ class NoisyMiner(Enemy):
         self.name = "Noisy Miner"
         self.hp = 15
         self.hpmax = 15
-        self.noise = "TWEET TWEET!"
 
     def attack_character(self):
-        print(f"{self.name} screams {self.noise} and dealt {self.attack} to p1!")
-
-
-# nm = NoisyMiner()
-# nm.attack
+        print(f"{self.name} has dealt {self.attack} to p1!")
 
 
 class Magpie(Enemy):
     def __init__(self):
-        Enemy.__init__(self)
+        Enemy.__init__(self)  # initialise parent class to inherite parent attributes
         self.name = "Magpie"
         self.hp = 30
         self.hpmax = 30
-        self.noise = "KRAAWWWW KRAAWWW!"
+        self.spec_attack = 30
 
     def special_attack(self):
-        self.spec_attack = 30
+        """
+        Print special attack statement for Magpie
+        """
         print(
-            f"{self.name} dives from the tree and screams {self.noise} with a special attack and dealt {self.spec_attack} to {p1.name}!"
+            f"{self.name} uses special attack and dealt {self.spec_attack} to player!"
         )
-
-    def attack_character(self):
-        print(f"{self.name} has dealt {self.attack} to {p1.name}!")
-
-
-# ennemy.attack
