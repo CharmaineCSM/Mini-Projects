@@ -51,7 +51,17 @@ class Game:
                 input("> ")
 
     def battle(self):
+        """
+        Initiates a battle between the player and enemy
+        by random draw while the player is not standing
+        (when moving on the map).
+
+        The method takes in the player inputs which consist of 3 actions:
+        Attack, Heal and Run
+
+        """
         self.fight = True
+        self.standing = False
 
         while self.standing is False:
             clear()
@@ -80,7 +90,24 @@ class Game:
                 print("You can't run away...")
                 input("> ")
 
+            if player.hp <= 0:
+                clear()
+                print(f"{enemy.name} has deafeated {player.name}....")
+                self.fight = False
+                print("GAME OVER")
+                exit()
+
+            if enemy.hp <= 0:
+                clear()
+                print(f"You have defeated the {enemy.name}!")
+                self.fight = False
+                self.standing = True
+                input("> ")
+
     def play_game(self):
+        """
+        starts the gameplay
+        """
         x = 0
         y = 0
         x_max = 4

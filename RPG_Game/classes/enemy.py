@@ -44,7 +44,7 @@ class NoisyMiner(Enemy):
         self.hpmax = 15
 
     def attack_character(self):
-        print(f"{self.name} has dealt {self.attack} to p1!")
+        print(f"{self.name} has dealt {self.attack} to player!")
 
 
 class Magpie(Enemy):
