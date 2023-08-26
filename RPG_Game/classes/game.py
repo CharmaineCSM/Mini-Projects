@@ -50,6 +50,36 @@ class Game:
                 print("Incorrect input, please try again:")
                 input("> ")
 
+    def battle(self):
+        self.fight = True
+
+        while self.standing is False:
+            clear()
+            print(f"You encountered an enemy...Defeat the {enemy.name}!")
+            enemy.get_health()
+            draw()
+            print(f"Name: {player.name}")
+            player.get_health()
+            player.get_potion()
+            draw()
+            print("1. Attack \n2. Heal \n3. Run")
+
+            battle_choice = input("> ")
+
+            if battle_choice == "1":
+                player.attack()
+                enemy.attack_character()
+                player.hp -= enemy.attack
+                enemy.hp -= player.atk
+                input("> ")
+            elif battle_choice == "2":
+                player.heal()
+                enemy.attack_character()
+                input("> ")
+            elif battle_choice == "3":
+                print("You can't run away...")
+                input("> ")
+
     def play_game(self):
         x = 0
         y = 0
@@ -57,7 +87,7 @@ class Game:
         y_max = 4
         self.standing = True
 
-        while self.play is True and self.fight is False:
+        while self.play is True:
             clear()
             print(f"Name: {player.name}")
             player.get_health()
@@ -99,6 +129,11 @@ class Game:
                 if y > 0:
                     y -= 1
                     self.standing = False
+
+            battle_draw = random.randint(0, 100)
+
+            if battle_draw < 80:
+                self.battle()
 
 
 player = Player()
