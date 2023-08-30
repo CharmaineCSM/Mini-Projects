@@ -83,8 +83,9 @@ class Game:
                 enemy.hp -= player.atk
                 input("> ")
             elif battle_choice == "2":
-                player.heal()
                 enemy.attack_character()
+                player.heal()
+                time.sleep(2)
                 input("> ")
             elif battle_choice == "3":
                 print("You can't run away...")

@@ -59,6 +59,6 @@ class Player:
         if self.hp == 100:
             print("Your health is full!")
         elif self.hp < 100 and self.potion >= 1:
-            self.hp == 100
             self.potion -= 1
+            self.hp = self.hpmax
             print(f"{self.name}'s HP has been refilled to {self.hp}.")
