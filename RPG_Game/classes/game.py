@@ -100,6 +100,7 @@ class Game:
             if enemy.hp <= 0:
                 clear()
                 print(f"You have defeated the {enemy.name}!")
+                enemy.hp = enemy.hpmax
                 self.fight = False
                 self.standing = True
                 input("> ")
