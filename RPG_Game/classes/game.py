@@ -1,7 +1,7 @@
 import os
 import time
 import random
-from enemy import NoisyMiner
+from enemy import NoisyMiner, Magpie
 from player import Player
 
 
@@ -63,8 +63,16 @@ class Game:
         self.fight = True
         self.standing = False
 
+        draw_enemy = random.randint(0, 100)
+
+        if draw_enemy > 50:
+            enemy = NoisyMiner()
+        elif draw_enemy < 50:
+            enemy = Magpie()
+
         while self.standing is False:
             clear()
+
             print(f"You encountered an enemy...Defeat the {enemy.name}!")
             enemy.get_health()
             draw()
@@ -166,7 +174,6 @@ class Game:
 
 
 player = Player()
-enemy = NoisyMiner()
 
 game = Game(player)
 game.open_menu()

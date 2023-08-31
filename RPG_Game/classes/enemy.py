@@ -53,12 +53,10 @@ class Magpie(Enemy):
         self.name = "Magpie"
         self.hp = 30
         self.hpmax = 30
-        self.spec_attack = 30
+        self.attack = 30
 
-    def special_attack(self):
+    def attack_character(self):
         """
-        Print special attack statement for Magpie
+        Print higher attack statement for Magpie
         """
-        print(
-            f"{self.name} uses special attack and dealt {self.spec_attack} to player!"
-        )
+        print(f"{self.name} has dealt {self.attack} to player!")
